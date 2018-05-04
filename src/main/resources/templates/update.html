@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="UTF-8"></meta>
+<title>组织管理</title>
+</head>
+<body>
+<h2>组织管理--修改</h2> 
+
+<hr></hr>
+
+<form th:action = "@{/orgnization/update}" th:object = "${orgnization}" th:method = "post">
+		  <input type="hidden" th:value="${orgnization.id}" th:field="*{id}"></input>
+	单位名称：<input type="text" th:field="*{name}"></input><br></br>
+	单位地址：<input type="text" th:field="*{address}"></input><br></br>
+	联系电话：<input type="text" th:field="*{officePhone}"></input><br></br>
+	电子邮箱：<input type="text" th:field="*{email}"></input><br></br>
+	
+	<input type="submit"></input>
+
+</form>
+
+</body>
+</html>

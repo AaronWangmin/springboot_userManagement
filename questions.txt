@@ -1,0 +1,13 @@
+?01	OrgnizationRepository, 增加一条记录前，如何判读已存在名字相同的组织了？
+
+?02 html,validate
+
+?03 orgnization/employee/reference station--add/search 等 html文件组织，
+
+?04 全局异常
+
+?05 html input 向后台传参？  根据名称进行查找
+
+?06	 return "redirect:list";
+	 return "forward:/orgnization/list";
+	 
