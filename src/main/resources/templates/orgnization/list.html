@@ -8,13 +8,13 @@
 </head>
 <body>
 
-<h2>组织管理</h2>
+<h2>组织管理 </h2>
 
 <span><a th:href = "@{/orgnization/list}">列表</a> </span>
 
 <span><a th:href = "@{/orgnization/add}">添加</a> </span>
 
-<form th:action="@{/orgnization/findByName}">
+<form th:action="@{/orgnization/findByName}" >
 	单位名称：<input type="text" name="name"></input>
 	
 	<input type="submit" value="查找"></input>

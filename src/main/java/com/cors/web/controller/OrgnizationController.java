@@ -23,7 +23,7 @@ public class OrgnizationController {
 	public ModelAndView index() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("orgnizations", orgnizationService.findAll());
-		mav.setViewName("list");
+		mav.setViewName("orgnization/list");
 		return mav;
 	}
 	
@@ -32,7 +32,7 @@ public class OrgnizationController {
 		Orgnization orgnization = new Orgnization();
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("orgnization", orgnization);
-		mav.setViewName("add");
+		mav.setViewName("orgnization/add");
 		return mav;
 	}
 	
@@ -54,7 +54,7 @@ public class OrgnizationController {
 		Orgnization orgnization = orgnizationService.findById(id);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("orgnization", orgnization);
-		mav.setViewName("update");
+		mav.setViewName("orgnization/update");
 		return mav;
 	}
 	
@@ -68,7 +68,7 @@ public class OrgnizationController {
 	public ModelAndView findByName(@ModelAttribute(value="name")String name) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("orgnizations", orgnizationService.findByName(name));
-		mav.setViewName("list");
+		mav.setViewName("orgnization/list");
 		return mav;
 	}
 	

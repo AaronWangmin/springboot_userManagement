@@ -14,7 +14,7 @@ import com.cors.web.service.IOrgnizationService;
 public class OrgnizationService implements IOrgnizationService {
 	
 	@Resource
-	OrgnizationRepository orgnizationRepository;
+	private OrgnizationRepository orgnizationRepository;
 
 	@Override
 	public Orgnization add(Orgnization orgnization) {

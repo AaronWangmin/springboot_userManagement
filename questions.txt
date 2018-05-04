@@ -11,3 +11,12 @@
 ?06	 return "redirect:list";
 	 return "forward:/orgnization/list";
 	 
+?07 
+	@OneToMany(mappedBy = "orgnization") , OneToMany 与 ManyToOne都需要吗？
+	
+	@ManyToOne
+	@JoinColumn(name = "orgnizationId") , 数据库中的字段名 orgnization_id 是根据怎么生成的？
+
+?08 index.html 主页面应该放在哪个文件夹下 ? 
+	放在static文件下可以访问 ?但 不能使用 bootrap的样式
+	放在templates下? 需要controller才能访问?

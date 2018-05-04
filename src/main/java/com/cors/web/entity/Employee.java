@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Email;
@@ -35,8 +37,9 @@ public class Employee {
 	@Column(length = 100)
 	private String officePhone;
 	
-	@Column
-	private int orgnizationId;
+	@ManyToOne
+	@JoinColumn(name = "orgnization_id")
+	private Orgnization orgnization;
 
 	public int getId() {
 		return id;
@@ -86,12 +89,12 @@ public class Employee {
 		this.officePhone = officePhone;
 	}
 
-	public int getOrgnizationId() {
-		return orgnizationId;
+	public Orgnization getOrgnization() {
+		return this.orgnization;
 	}
 
-	public void setOrgnizationId(int orgnizationId) {
-		this.orgnizationId = orgnizationId;
+	public void setOrgnization(Orgnization orgnization) {
+		this.orgnization = orgnization;
 	}
 
 }
