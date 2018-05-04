@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="UTF-8"></meta>
+<script th:src="@{/scripts/jquery-3.3.1.min.js}"></script>
+<title>人员管理</title>
+</head>
+<body>
+
+<h2>人员管理 </h2>
+
+<span><a th:href = "@{/employee/list}">列表</a> </span>
+
+<span><a th:href = "@{/employee/add}">添加</a> </span>
+
+<form th:action="@{/employee/findByName}" >
+	人员名称：<input type="text" name="name"></input>
+	
+	<input type="submit" value="查找"></input>
+</form>
+
+<hr></hr>
+
+<table border="1">
+	<tr>
+		<th>人员名称</th>
+		<th>人员职务</th>
+		<th>办公电话</th>
+		<th>移动电话</th>
+		<th>电子邮箱</th>
+		<th>操作</th>
+	</tr>
+	<tr th:each = "employee,index:${employees}">
+		<td th:text = "${employee.name}"></td>
+		<td th:text = "${employee.capital}"></td>
+		<td th:text = "${employee.officePhone}"></td>
+		<td th:text = "${employee.mobilePhone}"></td>
+		<td th:text = "${employee.email}"></td>
+		
+		<td><a th:href="@{/employee/delete(id=${employee.id})}">删除</a></td>
+		<td><a th:href="@{/employee/update(id=${employee.id})}">修改</a></td>
+	
+	</tr>
+
+</table>
+
+</body>
+</html>
