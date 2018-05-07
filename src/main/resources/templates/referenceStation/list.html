@@ -25,7 +25,7 @@
 		</div>
 		
 		<div class="col-md-10">
-			<header th:replace = "common/top_employee ::employeeHeader"></header>
+			<header th:replace = "common/top_referenceStation ::referenceStationHeader"></header>
 			
 			<div class="row">
 				<table class="table table-striped">
@@ -38,16 +38,16 @@
 						<th>电子邮箱</th>
 						<th colspan="2">操作</th>
 					</tr>
-					<tr th:each = "employee,index:${employees}">
-						<td th:text = "${employee.name}"></td>
-						<td th:text = "${employee.capital}"></td>
-						<td th:text = "${employee.orgnization.name}"></td>
-						<td th:text = "${employee.officePhone}"></td>
-						<td th:text = "${employee.mobilePhone}"></td>
-						<td th:text = "${employee.email}"></td>
+					<tr th:each = "referenceStation,index:${referenceStations}">
+						<td th:text = "${referenceStation.name}"></td>
+						<td th:text = "${referenceStation.capital}"></td>
+						<td th:text = "${referenceStation.orgnization.name}"></td>
+						<td th:text = "${referenceStation.officePhone}"></td>
+						<td th:text = "${referenceStation.mobilePhone}"></td>
+						<td th:text = "${referenceStation.email}"></td>
 						
-						<td><a th:href="@{/employee/delete(id=${employee.id})}">删除</a></td>
-						<td><a th:href="@{/employee/update(id=${employee.id})}">修改</a></td>
+						<td><a th:href="@{/referenceStation/delete(id=${referenceStation.id})}">删除</a></td>
+						<td><a th:href="@{/referenceStation/update(id=${referenceStation.id})}">修改</a></td>
 					</tr>
 				
 				</table>

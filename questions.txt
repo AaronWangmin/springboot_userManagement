@@ -20,3 +20,17 @@
 ?08 index.html 主页面应该放在哪个文件夹下 ? 
 	放在static文件下可以访问 ?但 不能使用 bootrap的样式
 	放在templates下? 需要controller才能访问?
+	
+?09 select html 向 controller 传值
+	name = 参数名
+	value = 参数值
+	
+?10 select html 向 controller 传对象 (employee.add())
+	th:field = 
+	
+?11 thymeleaf 
+	<td th:text = "${employee.orgnization.name}"></td>, name 获取不到
+	
+?12 orgnization delete
+	如果组织中还有成员，则不能删除，
+	  

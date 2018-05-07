@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.cors.web.entity.Employee;
-import com.cors.web.service.IEmployeeService;
+import com.cors.web.entity.ReferenceStation;
+import com.cors.web.service.IReferenceStationService;
 import com.cors.web.service.IOrgnizationService;
 
 @Controller
-@RequestMapping("/employee")
-public class EmployeeController {
+@RequestMapping("/referenceStation")
+public class ReferenceStationController {
 	
 	@Autowired
-	private IEmployeeService employeeService; 
+	private IReferenceStationService referenceStationService; 
 	
 	@Autowired
 	private IOrgnizationService orgnizationService;
@@ -26,60 +26,60 @@ public class EmployeeController {
 	@RequestMapping("/list")
 	public ModelAndView index() {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("employees", employeeService.findAll());
-		mav.setViewName("employee/list");
+		mav.addObject("referenceStations", referenceStationService.findAll());
+		mav.setViewName("referenceStation/list");
 		return mav;
 	}
 	
 	@RequestMapping("/add")
 	public ModelAndView add() {
-		Employee employee = new Employee();
+		ReferenceStation referenceStation = new ReferenceStation();
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("employee", employee);
+		mav.addObject("referenceStation", referenceStation);
 		mav.addObject("orgnizations", orgnizationService.findAll());
-		mav.setViewName("employee/add");
+		mav.setViewName("referenceStation/add");
 		return mav;
 	}
 	
 	@RequestMapping(value="/add",method=RequestMethod.POST)
-	public String add(@ModelAttribute(value="employee")Employee employee,
+	public String add(@ModelAttribute(value="referenceStation")ReferenceStation referenceStation,
 					  @ModelAttribute(value="orgnizationId")String orgnizationId) {
 		
-		employeeService.add(employee, Integer.parseInt(orgnizationId));
+		referenceStationService.add(referenceStation, Integer.parseInt(orgnizationId));
 		
-//		System.out.println(employee.getOrgnization().getId());
+//		System.out.println(referenceStation.getOrgnization().getId());
 		
 //		return "redirect:list";
-		return "forward:/employee/list";
+		return "forward:/referenceStation/list";
 	}
 	
 	@RequestMapping("/delete")
 	public String delete(int id) {
-		employeeService.delete(id);
-		return "forward:/employee/list";
+		referenceStationService.delete(id);
+		return "forward:/referenceStation/list";
 	}
 	
 	@GetMapping("/update")
 	public ModelAndView update(int id) {
-		Employee employee = employeeService.findById(id);
+		ReferenceStation referenceStation = referenceStationService.findById(id);
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("employee", employee);
+		mav.addObject("referenceStation", referenceStation);
 		mav.addObject("orgnizations", orgnizationService.findAll());
-		mav.setViewName("employee/update");
+		mav.setViewName("referenceStation/update");
 		return mav;
 	}
 	
 	@PostMapping("/update")
-	public String update(Employee employee,String orgnizationId) {
-		employeeService.add(employee, Integer.parseInt(orgnizationId));
-		return "forward:/employee/list";
+	public String update(ReferenceStation referenceStation,String orgnizationId) {
+		referenceStationService.add(referenceStation, Integer.parseInt(orgnizationId));
+		return "forward:/referenceStation/list";
 	}
 	
 	@RequestMapping("/findByName")
 	public ModelAndView findByName(@ModelAttribute(value="name")String name) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("employees", employeeService.findByName(name));
-		mav.setViewName("employee/list");
+		mav.addObject("referenceStations", referenceStationService.findByName(name));
+		mav.setViewName("referenceStation/list");
 		return mav;
 	}
 	

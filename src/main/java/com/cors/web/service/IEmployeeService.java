@@ -7,6 +7,7 @@ import com.cors.web.entity.Employee;
 
 public interface IEmployeeService {
 	public Employee add(Employee employee);
+	public Employee add(Employee employee, int orgnizationId);
 	public void delete(int id);
 	public void update(Employee employee);
 	public List<Employee> findAll();

@@ -14,22 +14,26 @@
 <script th:src="@{/scripts/jquery-3.3.1.min.js}"></script>
 </head>
 <body>
-	<header th:fragment = "employeeHeader">
+	<header th:fragment = "referenceStationHeader">
 		<div class="row">
-			<h3>用户管理</h3>
+			<h3>基站管理</h3>
 		</div>
 						
 		<div class="row">
-			<div class="col-md-2  col-md-offset-3">
-				<a th:href = "@{/employee/list}">列表</a>
+			<div class="col-md-2  col-md-offset-1">
+				<a th:href = "@{/referenceStation/list}">地图</a>
 			</div>
 			
 			<div class="col-md-2">
-				<a th:href = "@{/employee/add}">添加</a>
+				<a th:href = "@{/referenceStation/list}">列表</a>
+			</div>
+			
+			<div class="col-md-2">
+				<a th:href = "@{/referenceStation/add}">添加</a>
 			</div>
 			
 			<div class="col-md-5">
-				<form th:action="@{/employee/findByName}" >
+				<form th:action="@{/referenceStation/findByName}" >
 					人员名称：<input type="text" name="name"></input>
 					<input type="submit" value="查找"></input>
 				</form>
