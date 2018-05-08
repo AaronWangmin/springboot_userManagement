@@ -37,6 +37,10 @@ public class Orgnization {
 	@OneToMany(mappedBy = "orgnization")
 	private List<Employee> employees;
 	
+	@OneToMany(mappedBy = "orgnization")
+	private List<ReferenceStation> referenceStations;
+	
+	
 	public Orgnization() {
 	}
 
@@ -94,6 +98,14 @@ public class Orgnization {
 
 	public void setEmployees(List<Employee> employees) {
 		this.employees = employees;
+	}
+
+	public List<ReferenceStation> getReferenceStations() {
+		return referenceStations;
+	}
+
+	public void setReferenceStations(List<ReferenceStation> referenceStations) {
+		this.referenceStations = referenceStations;
 	}
 	
 }

@@ -12,7 +12,7 @@
 	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script th:src="@{/scripts/jquery-3.3.1.min.js}"></script>
-<title>人员管理</title>
+<title>基站管理</title>
 </head>
 <body>
 
@@ -30,21 +30,29 @@
 			<div class="row">
 				<table class="table table-striped">
 					<tr>
-						<th>人员名称</th>
-						<th>人员职务</th>
+						<th>基站编码</th>
+						<th>基站名称</th>
+						<th>基站状态</th>
 						<th>单位名称</th>
-						<th>办公电话</th>
-						<th>移动电话</th>
-						<th>电子邮箱</th>
+						<th>基站位置</th>
+						
+						<th>X坐标</th>
+						<th>Y坐标</th>
+						<th>Z坐标</th>
+						<th>数据格式</th>
+						
 						<th colspan="2">操作</th>
 					</tr>
 					<tr th:each = "referenceStation,index:${referenceStations}">
+						<td th:text = "${referenceStation.code}"></td>
 						<td th:text = "${referenceStation.name}"></td>
-						<td th:text = "${referenceStation.capital}"></td>
+						<td th:text = "${referenceStation.status}"></td>
 						<td th:text = "${referenceStation.orgnization.name}"></td>
-						<td th:text = "${referenceStation.officePhone}"></td>
-						<td th:text = "${referenceStation.mobilePhone}"></td>
-						<td th:text = "${referenceStation.email}"></td>
+						<td th:text = "${referenceStation.location}"></td>
+						<td th:text = "${referenceStation.X}"></td>
+						<td th:text = "${referenceStation.Y}"></td>
+						<td th:text = "${referenceStation.Z}"></td>
+						<td th:text = "${referenceStation.dataType}"></td>
 						
 						<td><a th:href="@{/referenceStation/delete(id=${referenceStation.id})}">删除</a></td>
 						<td><a th:href="@{/referenceStation/update(id=${referenceStation.id})}">修改</a></td>
