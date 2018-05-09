@@ -21,16 +21,32 @@
 	放在static文件下可以访问 ?但 不能使用 bootrap的样式
 	放在templates下? 需要controller才能访问?
 	
-?09 select html 向 controller 传值
+?09 html select  向 controller 传值
 	name = 参数名
 	value = 参数值
 	
-?10 select html 向 controller 传对象 (employee.add())
+?10 html select  向 controller 传对象 (employee.add())
 	th:field = 
+	
+?11 html select  向 controller 传enum对象 (referenceStation.add)
+	th:field = 	
 	
 ?11 thymeleaf 
 	<td th:text = "${employee.orgnization.name}"></td>, name 获取不到
 	
-?12 orgnization delete
+?12 Dao/Service/Controller
+	orgnization delete
 	如果组织中还有成员，则不能删除，
+	
+?13 entity
+	1) referenceStation
+		CoordinateType/ConnectionType:用enum，还是string？
+	
+	2) orgnization/employee/referenceStation
+		两个多对一，manyToONe
+		
+?14 boostrap
+	如何嵌入百度地图到html?
+	百度地图的尺寸，以百分比设置？
+	如何为百度地图添加流动条
 	  

@@ -25,6 +25,17 @@ public class ReferenceStationController {
 	@Autowired
 	private IOrgnizationService orgnizationService;
 	
+	@RequestMapping("/map")
+	public ModelAndView map() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("referenceStations", referenceStationService.findAll());
+		
+		mav.addObject("test", "10");
+		
+		mav.setViewName("referenceStation/map");
+		return mav;
+	}
+	
 	@RequestMapping("/list")
 	public ModelAndView index() {
 		ModelAndView mav = new ModelAndView();
@@ -78,6 +89,11 @@ public class ReferenceStationController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("referenceStation", referenceStation);
 		mav.addObject("orgnizations", orgnizationService.findAll());
+		
+		// 获取 ConnectionType的所有类型，并传值 给 html
+		mav.addObject("connectionTypes",ConnectionType.values());
+		mav.addObject("dataTypes",DataType.values());
+		
 		mav.setViewName("referenceStation/update");
 		return mav;
 	}

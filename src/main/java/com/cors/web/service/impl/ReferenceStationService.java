@@ -28,8 +28,8 @@ public class ReferenceStationService implements IReferenceStationService {
 	
 	@Override
 	public ReferenceStation add(ReferenceStation referenceStation, int orgnizationId) {
-//		Orgnization orgnization = orgnizationRepository.findOne(orgnizationId);
-//		referenceStation.setOrgnization(orgnization);
+		Orgnization orgnization = orgnizationRepository.findOne(orgnizationId);
+		referenceStation.setOrgnization(orgnization);
 		return referenceStationRepository.save(referenceStation);
 	}
 

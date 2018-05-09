@@ -12,7 +12,7 @@
 	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script th:src="@{/scripts/jquery-3.3.1.min.js}"></script>
-<title>人员管理</title>
+<title>基站管理--添加</title>
 </head>
 <body>
 
@@ -97,7 +97,8 @@
 					<div class="form-group">
 						<label class="col-md-4 control-label">GNSS型号：</label>
 						<div class="col-sm-8">
-							<input type="text" th:field="*{location}" class="form-control"></input>
+							<input type="text" class="form-control"></input> 
+<!-- 							th:field="*{receiverModel}" -->
 						</div>
 					</div>
 					

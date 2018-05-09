@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="UTF-8"></meta>
+<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
+
+	<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"></link>
+
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script th:src="@{/scripts/jquery-3.3.1.min.js}"></script>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no"></meta>
+	<style type="text/css">  
+      	body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:50;font-family:"微软雅黑";}
+    	#map_canvas img{max-width: none;}  
+	</style> 
+	
+	<script type="text/javascript" th:src="@{http://api.map.baidu.com/api(v=2.0,ak=HqAVTeVwPyOx9zMk9zYunEbZdIGwzEks)}"></script>
+	<script type="text/javascript" th:src="@{http://api.map.baidu.com/library/DistanceTool/1.2/src/DistanceTool_min.js}"></script>
+	<script type="text/javascript" th:src="@{http://api.map.baidu.com/library/MarkerTool/1.2/src/MarkerTool.js}"></script>
+	<script type="text/javascript" th:src="@{http://api.map.baidu.com/library/CityList/1.4/src/CityList.js}"></script>	
+	
+<title>基站管理--地图</title>
+</head>
+
+<body>
+	<header th:replace="common/top_head :: navbar"></header>
+	
+	<div class="container">		
+		<div class="row">
+			<div class="col-md-2">
+				<header th:replace="common/top_head :: system"></header>				
+			</div>
+			
+			<div class="col-md-10">
+				<header th:replace = "common/top_referenceStation ::referenceStationHeader"></header>
+				
+				<div class="embed-responsive embed-responsive-16by9">
+					<div id="allmap" style="width:935px;height:450px"></div>
+				</div>
+			</div>
+		</div>
+	</div> 
+	
+	<script type="text/javascript" th:src="@{/js/baidu_referenceStation.js}"></script>
+
+</body>
+
+</html>
