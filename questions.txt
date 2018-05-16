@@ -49,4 +49,20 @@
 	如何嵌入百度地图到html?
 	百度地图的尺寸，以百分比设置？
 	如何为百度地图添加流动条
+	
+?15 js 如何获取 ModelAndView addObject的值？
+	
+	方法一：不行
+	<input id="test" type="hidden" th:value="${test}" th:text="${test}"></input>
+	alert("Value: " + $("#test").val());
+	
+	方法二：html,内联可以，但外联不行
+	<script th:inline="javascript">
+    	var message = [[${test}]];
+    	alert(message);
+    	alert("Value: " + $("#test").val());	// 
+    	console.log(message);
+	</script>
+	
+	
 	  

@@ -1,5 +1,8 @@
 package com.cors.web.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cors.web.common.ConstantsHolder.ConnectionType;
@@ -25,15 +29,18 @@ public class ReferenceStationController {
 	@Autowired
 	private IOrgnizationService orgnizationService;
 	
+	@RequestMapping("/map/getReferenceStations")
+	@ResponseBody
+	public Map<String,Object> getReferenceStations(){
+		Map<String,Object> referenceStations = new HashMap<String,Object>();
+//		referenceStations.put("test","test 1000");
+		referenceStations.put("referenceStations", referenceStationService.findAll());		
+		return referenceStations;
+	}
+	
 	@RequestMapping("/map")
-	public ModelAndView map() {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("referenceStations", referenceStationService.findAll());
-		
-		mav.addObject("test", "10");
-		
-		mav.setViewName("referenceStation/map");
-		return mav;
+	public String map() {
+		return "referenceStation/map";
 	}
 	
 	@RequestMapping("/list")

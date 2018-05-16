@@ -13,6 +13,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import com.cors.web.common.ConstantsHolder.ConnectionType;
 import com.cors.web.common.ConstantsHolder.DataType;
 import com.cors.web.common.ConstantsHolder.ReferenceStationStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "t_referenceStation")
@@ -53,8 +54,10 @@ public class ReferenceStation {
 	
 	private String location;	// 基准站位置
 	
+	
 	@ManyToOne
 	@JoinColumn(name = "orgnization_id")
+	@JsonIgnore
 	private Orgnization orgnization;	//基准站所属公司
 
 	public int getId() {

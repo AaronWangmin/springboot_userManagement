@@ -1,44 +1,28 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<head>
-<meta charset="UTF-8"></meta>
-<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
 
-	<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
-	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"></link>
-
-	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script th:src="@{/scripts/jquery-3.3.1.min.js}"></script>
-</head>
-<body>
-	<header th:fragment = "orgnizationHeader">
-		<div class="row">
-			<h3>组织管理</h3>
-		</div>
-						
-		<div class="row">
-			<div class="col-md-2  col-md-offset-3">
-				<a th:href = "@{/orgnization/list}">列表</a>
-			</div>
-			
-			<div class="col-md-2">
-				<a th:href = "@{/orgnization/add}">添加</a>
-			</div>
-			
-			<div class="col-md-5">
-				<form th:action="@{/orgnization/findByName}" >
-					组织名称：<input type="text" name="name"></input>
-					<input type="submit" value="查找"></input>
-				</form>
-			</div>
-			
+<header th:fragment = "orgnizationHeader">
+	<div class="row">
+		<h3>组织管理</h3>
+	</div>
+					
+	<div class="row">
+		<div class="col-md-2  col-md-offset-3">
+			<a th:href = "@{/orgnization/list}">列表</a>
 		</div>
 		
-		<hr></hr>
+		<div class="col-md-2">
+			<a th:href = "@{/orgnization/add}">添加</a>
+		</div>
 		
-	</header>	
-</body>
-</html>
+		<div class="col-md-5">
+			<form th:action="@{/orgnization/findByName}" >
+				组织名称：<input type="text" name="name"></input>
+				<input type="submit" value="查找"></input>
+			</form>
+		</div>
+		
+	</div>
+	
+	<hr></hr>
+	
+</header>	
