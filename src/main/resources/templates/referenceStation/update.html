@@ -107,8 +107,8 @@
 					<div class="form-group">
 						<label class="col-md-4 control-label">数据格式：</label>
 						<div class="col-sm-8">
-							<select class="form-control" name="dataType">
-								<option th:each = "dt,index:${dataTypes}"
+							<select class="form-control" name="dataFormat">
+								<option th:each = "dt,index:${dataFormats}"
 										th:text = "${dt.name()}"
 										th:value = "${dt.name()}">	// ? 对象不能传送到controller
 						  		</option>
