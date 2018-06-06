@@ -1,3 +1,15 @@
+tp-link
+	192.168.5.103
+	12345678
+
+GNSS-N72
+	192.168.5.17
+	admin/password
+ 
+
+
+
+
 ?01	OrgnizationRepository, 增加一条记录前，如何判读已存在名字相同的组织了？
 
 ?02 html,validate
@@ -63,6 +75,13 @@
     	alert("Value: " + $("#test").val());	// 
     	console.log(message);
 	</script>
+
+? redis unserialize
+	hset -> gethall -> key, String类型取不到
+		
+? redis serialize
+	entity,属性中有其它的类对象,序列化时其它对象也要继承 serialize吗？ 	
 	
+? springboot 主程序启动后，的一些逻辑类，如何执行？ 
 	
 	  

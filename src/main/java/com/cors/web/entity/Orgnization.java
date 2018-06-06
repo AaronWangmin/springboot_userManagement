@@ -1,5 +1,6 @@
 package com.cors.web.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -14,7 +15,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "t_orgnization")
-public class Orgnization {
+public class Orgnization implements Serializable{
 
 	@Id
 	@GeneratedValue

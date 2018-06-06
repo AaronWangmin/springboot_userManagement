@@ -4,12 +4,15 @@ public final class ConstantsHolder {
 	
 	private ConstantsHolder() {}
 	
+	public enum NavigationSatelliteSystem{
+		GPS,BD,GLONASS,GALILEO
+	}
 	
 	public enum ConnectionType{
 		SOCKET_SERVER,SOCKET_CLIENT,NTRIP_SERVER,NTRIP_CLIENT
 	}
 	
-	public enum DataType{
+	public enum DataFormat{
 		RTCM33,RTCM32,RTCM31,RTCM30,RTCM23,RTCM20
 	}
 	
@@ -18,5 +21,7 @@ public final class ConstantsHolder {
 		UNAVAILABLE,	// 有通讯，但卫星数少于4颗，NMEA 0
 		POSITION		// 卫星数大于5颗,NMEA 1
 	}
+	
+	
 
 }

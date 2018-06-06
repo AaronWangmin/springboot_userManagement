@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="UTF-8"></meta>
+<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
+
+	<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"></link>
+
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script th:src="@{/scripts/jquery-3.3.1.min.js}"></script>
+<title>产品管理</title>
+</head>
+<body>
+
+<header th:replace="common/top_head :: navbar"></header>
+
+<div class="container-fluid">		
+	<div class="row">
+		<div class="col-md-2">
+			<header th:replace="common/top_head :: system"></header>				
+		</div>
+		
+		<div class="col-md-10">
+			<header th:replace = "common/top_mountPoint ::mountPointHeader"></header>
+			
+			<div class="row">
+				<table class="table table-striped">
+					<tr>
+						<th>MountPoint</th>
+						<th>数据格式</th>
+						<th>定位系统</th>
+						<th>网络名称</th>
+						<th>国家</th>
+						<th>NMEA</th>
+						<th>解类型</th>
+						<th>认证</th>
+						
+						<th colspan="2" align="center">操作</th>
+					</tr>
+					<tr th:each = "mountPoint,index:${mountPoints}">
+						<td th:text = "${mountPoint.name}">MountPoint</td>
+						<td th:text = "${mountPoint.dataFormat}">数据格式</td>
+						<td th:text = "${mountPoint.navSystem}">定位系统</td>
+						<td th:text = "${mountPoint.network}">网络名称</td>
+						<td th:text = "${mountPoint.country}">国家</td>
+						<td th:text = "${mountPoint.needOfNmea}">NMEA</td>
+						<td th:text = "${mountPoint.solution}">解类型</td>
+						<td th:text = "${mountPoint.authentication}">认证</td>
+						
+						<td><a th:href="@{/mountPoint/delete(id=${mountPoint.id})}">删除</a></td>
+						<td><a th:href="@{/mountPoint/update(id=${mountPoint.id})}">修改</a></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+		</div>
+		
+	</div>
+			
+</div>
+
+
+
+
+
+</body>
+</html>

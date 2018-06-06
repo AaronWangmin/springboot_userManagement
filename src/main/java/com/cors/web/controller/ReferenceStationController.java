@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cors.web.common.ConstantsHolder.ConnectionType;
-import com.cors.web.common.ConstantsHolder.DataType;
+import com.cors.web.common.ConstantsHolder.DataFormat;
 import com.cors.web.entity.ReferenceStation;
 import com.cors.web.service.IOrgnizationService;
 import com.cors.web.service.IReferenceStationService;
@@ -60,7 +60,7 @@ public class ReferenceStationController {
 		
 		// 获取 ConnectionType的所有类型，并传值 给 html
 		mav.addObject("connectionTypes",ConnectionType.values());
-		mav.addObject("dataTypes",DataType.values());
+		mav.addObject("dataFormats",DataFormat.values());
 		
 		mav.setViewName("referenceStation/add");
 		return mav;
@@ -70,11 +70,11 @@ public class ReferenceStationController {
 	public String add(@ModelAttribute(value="referenceStation")ReferenceStation referenceStation,
 					  @ModelAttribute(value="orgnizationId")String orgnizationId,
 					  @ModelAttribute(value="connectionType")String connectionType,
-					  @ModelAttribute(value="dataType")String dateType) {
+					  @ModelAttribute(value="dataFormat")String dateType) {
 		
 		referenceStation.setOrgnization(orgnizationService.findById(Integer.parseInt(orgnizationId)));
 		referenceStation.setConnectionType(ConnectionType.valueOf(connectionType));
-		referenceStation.setDataType(DataType.valueOf(dateType));
+		referenceStation.setDataFormat(DataFormat.valueOf(dateType));
 		
 		referenceStationService.add(referenceStation);
 		
@@ -99,7 +99,7 @@ public class ReferenceStationController {
 		
 		// 获取 ConnectionType的所有类型，并传值 给 html
 		mav.addObject("connectionTypes",ConnectionType.values());
-		mav.addObject("dataTypes",DataType.values());
+		mav.addObject("dataFormats",DataFormat.values());
 		
 		mav.setViewName("referenceStation/update");
 		return mav;

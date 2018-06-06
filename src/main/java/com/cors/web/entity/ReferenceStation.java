@@ -1,5 +1,7 @@
 package com.cors.web.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,13 +13,13 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.cors.web.common.ConstantsHolder.ConnectionType;
-import com.cors.web.common.ConstantsHolder.DataType;
+import com.cors.web.common.ConstantsHolder.DataFormat;
 import com.cors.web.common.ConstantsHolder.ReferenceStationStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "t_referenceStation")
-public class ReferenceStation {
+public class ReferenceStation implements Serializable{
 	
 	@Id
 	@GeneratedValue
@@ -48,7 +50,7 @@ public class ReferenceStation {
 	
 	private String password;
 	
-	private DataType dataType;
+	private DataFormat dataFormat;
 	
 	private ReferenceStationStatus status;
 	
@@ -156,12 +158,12 @@ public class ReferenceStation {
 		this.password = password;
 	}
 
-	public DataType getDataType() {
-		return dataType;
+	public DataFormat getDataFormat() {
+		return dataFormat;
 	}
 
-	public void setDataType(DataType dataType) {
-		this.dataType = dataType;
+	public void setDataFormat(DataFormat dataFormat) {
+		this.dataFormat = dataFormat;
 	}
 
 	public ReferenceStationStatus getStatus() {
