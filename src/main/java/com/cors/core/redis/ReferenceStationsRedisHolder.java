@@ -1,4 +1,4 @@
-package com.cors.web.redis;
+package com.cors.core.redis;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,10 +10,10 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
 
-import com.cors.web.common.util.JedisUtil;
-import com.cors.web.common.util.SerializeUtil;
-import com.cors.web.entity.ReferenceStation;
-import com.cors.web.service.IReferenceStationService;
+import com.cors.core.common.util.JedisUtil;
+import com.cors.core.common.util.SerializeUtil;
+import com.cors.core.entity.ReferenceStation;
+import com.cors.core.service.IReferenceStationService;
 
 import redis.clients.jedis.Jedis;
 
@@ -29,6 +29,8 @@ public class ReferenceStationsRedisHolder {
 		List<ReferenceStation> referenceStations = referenceStationService.findAll();
 		
 		Jedis jedis = JedisUtil.getRedis();
+		
+		deleteHashMap(jedis,hkey);
 		
 		for(ReferenceStation rs : referenceStations) {
 			byte[] key = rs.getName().getBytes();
@@ -75,6 +77,10 @@ public class ReferenceStationsRedisHolder {
 		return rss;
 	}
 	
-	
+	// 应为更新，而不是清除
+	// TODO
+	public void deleteHashMap(Jedis jedis,String key) {
+		if(jedis.hgetAll(hkey.getBytes()) !=null) jedis.del(hkey);
+	}
 
 }

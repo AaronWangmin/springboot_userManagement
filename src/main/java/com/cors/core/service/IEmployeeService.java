@@ -1,9 +1,9 @@
-package com.cors.web.service;
+package com.cors.core.service;
 
 
 import java.util.List;
 
-import com.cors.web.entity.Employee;
+import com.cors.core.entity.Employee;
 
 public interface IEmployeeService {
 	public Employee add(Employee employee);

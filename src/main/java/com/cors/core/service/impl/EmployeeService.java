@@ -1,4 +1,4 @@
-package com.cors.web.service.impl;
+package com.cors.core.service.impl;
 
 import java.util.List;
 
@@ -6,11 +6,11 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.cors.web.dao.EmployeeRepository;
-import com.cors.web.dao.OrgnizationRepository;
-import com.cors.web.entity.Employee;
-import com.cors.web.entity.Orgnization;
-import com.cors.web.service.IEmployeeService;
+import com.cors.core.dao.EmployeeRepository;
+import com.cors.core.dao.OrgnizationRepository;
+import com.cors.core.entity.Employee;
+import com.cors.core.entity.Orgnization;
+import com.cors.core.service.IEmployeeService;
 
 @Service("employeeService")
 public class EmployeeService implements IEmployeeService {

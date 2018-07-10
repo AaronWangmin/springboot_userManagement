@@ -1,10 +1,10 @@
-package com.cors.web.dao;
+package com.cors.core.dao;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.cors.web.entity.MountPoint;
+import com.cors.core.entity.MountPoint;
 
 /**
  * @author Wangmin@shbeidou.com *

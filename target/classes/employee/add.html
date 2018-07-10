@@ -18,7 +18,7 @@
 
 <header th:replace="common/top_head :: navbar"></header>
 
-<div class="container">		
+<div class="container-fluid">		
 	<div class="row">
 		<div class="col-md-2">
 			<header th:replace="common/top_head :: system"></header>				
@@ -32,6 +32,19 @@
 					<label class="col-md-2 control-label">人员名称：</label>
 					<div class="col-sm-4">
 						<input type="text" th:field="*{name}" class="form-control"></input>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-md-2 control-label">单位名称：</label>
+					<div class="col-sm-4">
+						<select class="form-control" name="orgnizationId">
+						  <option th:each = "orgnization,index:${orgnizations}" 
+						  		  th:text = "${orgnization.name}"
+						  		  th:value = "${orgnization.id}"
+						  		  th:field = "*{orgnization}">	// ? 对象不能传送到controller
+						  </option>
+						</select>
 					</div>
 				</div>
 				

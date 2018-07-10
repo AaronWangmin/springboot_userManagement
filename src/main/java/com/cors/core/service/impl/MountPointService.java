@@ -1,4 +1,4 @@
-package com.cors.web.service.impl;
+package com.cors.core.service.impl;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.cors.web.dao.MountPointRepository;
-import com.cors.web.entity.MountPoint;
-import com.cors.web.service.IMountPointService;
+import com.cors.core.dao.MountPointRepository;
+import com.cors.core.entity.MountPoint;
+import com.cors.core.service.IMountPointService;
 
 @Service("mountPointService")
 public class MountPointService implements IMountPointService {

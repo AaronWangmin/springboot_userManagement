@@ -1,4 +1,4 @@
-package com.cors.web.entity;
+package com.cors.core.entity;
 
 import java.io.Serializable;
 
@@ -6,13 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.swing.text.NavigationFilter;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.cors.web.bean.MessageDetails;
-import com.cors.web.common.ConstantsHolder.DataFormat;
-import com.cors.web.common.ConstantsHolder.NavigationSatelliteSystem;
+import com.cors.core.bean.MessageTypeDetail;
+import com.cors.core.common.ConstantsHolder.DataFormat;
+import com.cors.core.common.ConstantsHolder.DataFormatDetail;
 
 /**
  * @author Wangmin@shbeidou.com
@@ -34,7 +33,7 @@ public class MountPoint implements Serializable{
 
 	private DataFormat dataFormat;
 
-	private String messageDetails;
+//	private MessageTypeDetail[] messageDetails;
 
 	private int needOfCarrier;
 
@@ -66,27 +65,55 @@ public class MountPoint implements Serializable{
 	
 	public MountPoint() {
 		this.dataFormat = DataFormat.RTCM32;
+//		this.messageDetails = this.getMessageDetails();
 		this.needOfCarrier = 2;
-		this.network = "SHBD";
+		this.navSystem = "GNSS";
+		this.network = "SHBDCORS";
 		this.country = "CHN";
 		this.needOfNmea = 1;
 		this.solution = 1;
-		this.generator = "SHBD GNSS PLATFORM";
+		this.generator = "SHBD";
 		this.compression = "none";
 		this.authentication = "B";
 		this.fee = "N";
-		this.bitRate = 500;
+		this.bitRate = 0;
 		this.misc = "none";
 		
-		this.messageDetails = "messageDetail";
-		this.navSystem = "navSystem";
-		this.network = "network";
-		this.country = "CHN";
-		this.generator = "generator";
-		this.compression ="compression";
-		this.authentication = "authentication";
-		this.fee = "fee";
-		this.misc = "misc";
+	}
+	
+	public String sourceTable() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("STR;");
+		sb.append(this.getName().toUpperCase()).append(";"); // mountPoint
+		sb.append(this.getName().toUpperCase()).append(";"); // identifier
+		sb.append(this.dataFormat.name().toUpperCase()).append(";");
+		sb.append(this.getDataFormatDetail()).append(";");
+		
+		// below need to edit
+		sb.append(this.needOfCarrier).append(";");		
+		sb.append(this.navSystem).append(";");					
+		sb.append(this.network).append(";");
+		sb.append(this.country).append(";");
+		sb.append("0.00").append(";");
+		sb.append("0.00").append(";");
+		sb.append(this.needOfNmea).append(";");
+		sb.append(this.solution).append(";");
+		sb.append(this.generator).append(";");
+		sb.append(this.compression).append(";");
+		sb.append(this.authentication).append(";");
+		sb.append(this.fee).append(";");
+		sb.append(this.bitRate).append(";");
+		sb.append(this.misc);
+		
+		return sb.toString();
+	}
+	
+	public String getDataFormatDetail() {
+		StringBuilder sb = new StringBuilder();
+		for(MessageTypeDetail d : this.getMessageDetails()) {
+			sb.append(d.getTypeNo()).append("(").append(d.getPeriod()).append(")").append(",");
+		}
+		return sb.toString();
 	}
 
 	public int getId() {
@@ -113,13 +140,20 @@ public class MountPoint implements Serializable{
 		this.dataFormat = dataFormat;
 	}
 
-	public String getMessageDetails() {
-		return messageDetails;
+	public MessageTypeDetail[] getMessageDetails() {
+		switch(this.dataFormat) {
+		case RTCM32:
+			return DataFormatDetail.Rtcm32Detail;
+		case RTCM30:
+			return DataFormatDetail.Rtcm30Detail;
+		default:
+			return null;
+		}
 	}
-
-	public void setMessageDetails(String messageDetails) {
-		this.messageDetails = messageDetails;
-	}
+	
+//	public void setMessageDetails(MessageTypeDetail[] messageDetails) {
+//		this.messageDetails = messageDetails;
+//	}
 
 	public int getNeedOfCarrier() {
 		return needOfCarrier;
@@ -153,7 +187,7 @@ public class MountPoint implements Serializable{
 	}
 
 	public void setCountry(String country) {
-		country = country;
+		this.country = country;
 	}
 
 	public double getLatitude() {

@@ -1,4 +1,4 @@
-package com.cors.web.common.util;
+package com.cors.core.common.util;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -18,9 +18,9 @@ public class JedisUtil {
 	public static Jedis getRedis() {
 		
 		JedisPoolConfig config = new JedisPoolConfig();
-		config.setMaxTotal(100);	// 设置最大连接数
-		config.setMaxIdle(10);		// 设置最大空闲数
-		
+		config.setMaxTotal(1000);	// 设置最大连接数
+		config.setMaxIdle(100);		// 设置最大空闲数
+		config.setMaxWaitMillis(10000);
 				
 		jedisPool = new JedisPool(config,"192.168.5.193",6379);
 		

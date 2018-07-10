@@ -1,8 +1,8 @@
-package com.cors.web.service;
+package com.cors.core.service;
 
 import java.util.List;
 
-import com.cors.web.entity.MountPoint;
+import com.cors.core.entity.MountPoint;
 
 /**
  * @author Wangmin@shbeidou.com *

@@ -1,4 +1,4 @@
-package com.cors.web.entity;
+package com.cors.core.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

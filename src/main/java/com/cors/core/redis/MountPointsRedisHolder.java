@@ -1,4 +1,4 @@
-package com.cors.web.redis;
+package com.cors.core.redis;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,10 +10,10 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
 
-import com.cors.web.common.util.JedisUtil;
-import com.cors.web.common.util.SerializeUtil;
-import com.cors.web.entity.MountPoint;
-import com.cors.web.service.IMountPointService;
+import com.cors.core.common.util.JedisUtil;
+import com.cors.core.common.util.SerializeUtil;
+import com.cors.core.entity.MountPoint;
+import com.cors.core.service.IMountPointService;
 
 import redis.clients.jedis.Jedis;
 
@@ -30,6 +30,10 @@ public class MountPointsRedisHolder {
 		
 		Jedis jedis = JedisUtil.getRedis();
 		
+		// 删除 redis中已有的 mountPoints
+		deleteHashMap(jedis, hkey);
+		
+		// 重新设置 mountPoint 
 		for(MountPoint mp : mountPoints) {
 			byte[] key = mp.getName().getBytes();
 			byte[] value = SerializeUtil.serialize(mp);
@@ -73,6 +77,12 @@ public class MountPointsRedisHolder {
 		JedisUtil.close();
 		
 		return mps;
+	}
+	
+	// 应为更新，而不是清除
+	// TODO
+	public void deleteHashMap(Jedis jedis,String key) {
+		if(jedis.hgetAll(hkey.getBytes()) !=null) jedis.del(hkey);
 	}
 	
 	

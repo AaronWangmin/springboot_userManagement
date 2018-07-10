@@ -1,4 +1,4 @@
-package com.cors.web.service.impl;
+package com.cors.core.service.impl;
 
 import java.util.List;
 
@@ -6,11 +6,11 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.cors.web.dao.ReferenceStationRepository;
-import com.cors.web.dao.OrgnizationRepository;
-import com.cors.web.entity.ReferenceStation;
-import com.cors.web.entity.Orgnization;
-import com.cors.web.service.IReferenceStationService;
+import com.cors.core.dao.OrgnizationRepository;
+import com.cors.core.dao.ReferenceStationRepository;
+import com.cors.core.entity.Orgnization;
+import com.cors.core.entity.ReferenceStation;
+import com.cors.core.service.IReferenceStationService;
 
 @Service("referenceStationService")
 public class ReferenceStationService implements IReferenceStationService {

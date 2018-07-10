@@ -1,4 +1,4 @@
-package com.cors.web.service.impl;
+package com.cors.core.service.impl;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.cors.web.dao.OrgnizationRepository;
-import com.cors.web.entity.Orgnization;
-import com.cors.web.service.IOrgnizationService;
+import com.cors.core.dao.OrgnizationRepository;
+import com.cors.core.entity.Orgnization;
+import com.cors.core.service.IOrgnizationService;
 
 @Service("orgnizationService")
 public class OrgnizationService implements IOrgnizationService {

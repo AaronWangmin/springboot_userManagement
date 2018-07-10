@@ -83,5 +83,13 @@ GNSS-N72
 	entity,属性中有其它的类对象,序列化时其它对象也要继承 serialize吗？ 	
 	
 ? springboot 主程序启动后，的一些逻辑类，如何执行？ 
+
+? redis 
+	redisConfig.yml, RedisConfig, ICacheService,RedisService,
 	
+? pom 引用  survey.jar 后，不能 maven installing.	
+
+? 如何把测量工具条加入到top_referenceStation.html
+
+? 百度地图标注文本时，文本框显示不全的问题
 	  

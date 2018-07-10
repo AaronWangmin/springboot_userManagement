@@ -1,4 +1,4 @@
-package com.cors.web.common.util;
+package com.cors.core.common.util;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
